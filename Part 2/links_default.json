@@ -1,9 +1,0 @@
-{
-  "_comment": "Inter-switch link properties (same as p3_topo.py). bw in Mbps, delay in ms. Read by BOTH p2_topo.py and p2_controller.py.",
-  "links": [
-    {"a": 1, "b": 2, "bw": 2, "delay": 20},
-    {"a": 2, "b": 3, "bw": 2, "delay": 10},
-    {"a": 3, "b": 4, "bw": 1, "delay": 20},
-    {"a": 4, "b": 1, "bw": 1, "delay": 15}
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "_comment": "Test case: s1-s2 delay raised 20 -> 40 ms. Everything else unchanged.",
-  "links": [
-    {"a": 1, "b": 2, "bw": 2, "delay": 40},
-    {"a": 2, "b": 3, "bw": 2, "delay": 10},
-    {"a": 3, "b": 4, "bw": 1, "delay": 20},
-    {"a": 4, "b": 1, "bw": 1, "delay": 15}
-  ]
-}
