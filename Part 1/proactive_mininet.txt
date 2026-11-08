@@ -1,0 +1,77 @@
+Script started on 2026-11-07 17:53:06+00:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="102" LINES="51"]
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7msudo mn -c[27msudo mn -c
+[?2004l[sudo] password for soham: 
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+killall -9 controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+pkill -9 -f "sudo mnexec"
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old X11 tunnels
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+***  Removing OVS datapaths
+ovs-vsctl --timeout=1 list-br
+ovs-vsctl --timeout=1 list-br
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '([-_.[:alnum:]]+-eth[[:digit:]]+)'
+ip link show
+*** Killing stale mininet node processes
+pkill -9 -f mininet:
+*** Shutting down stale tunnels
+pkill -9 -f Tunnel=Ethernet
+pkill -9 -f .ssh/mn
+rm -f ~/.ssh/mn/*
+*** Cleanup complete.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7msudo python3 p[27m[7m1[27m[7m_topo.py[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo python3 p1_topo.py
+[?2004lmininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=7.109s, table=0, n_packets=21, n_bytes=1762, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> h1 ping -c 5 h5
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=23.7 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=10.5 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=10.2 ms
+64 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=10.3 ms
+
+--- 10.0.0.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4217ms
+rtt min/avg/max/mdev = 10.163/12.980/23.674/5.347 ms
+mininet> pingall
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 
+h2 -> h1 h3 h4 h5 
+h3 -> h1 h2 h4 h5 
+h4 -> h1 h2 h3 h5 
+h5 -> h1 h2 h3 h4 
+*** Results: 0% dropped (20/20 received)
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=35.003s, table=0, n_packets=29, n_bytes=2322, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=35.003s, table=0, n_packets=10, n_bytes=420, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=35.003s, table=0, n_packets=21, n_bytes=1610, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=35.003s, table=0, n_packets=15, n_bytes=1078, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=35.003s, table=0, n_packets=14, n_bytes=1036, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=35.003s, table=0, n_packets=9, n_bytes=714, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=35.003s, table=0, n_packets=14, n_bytes=1204, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=35.003s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s2
+ cookie=0x0, duration=42.964s, table=0, n_packets=23, n_bytes=1862, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=42.964s, table=0, n_packets=10, n_bytes=420, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=42.964s, table=0, n_packets=13, n_bytes=1050, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s2-eth3"
+ cookie=0x0, duration=42.964s, table=0, n_packets=8, n_bytes=560, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s2-eth3"
+ cookie=0x0, duration=42.964s, table=0, n_packets=8, n_bytes=560, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s2-eth3"
+ cookie=0x0, duration=42.964s, table=0, n_packets=13, n_bytes=994, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=42.964s, table=0, n_packets=17, n_bytes=1442, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=42.964s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> exit [K
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+
+Script done on 2026-11-07 17:54:40+00:00 [COMMAND_EXIT_CODE="0"]

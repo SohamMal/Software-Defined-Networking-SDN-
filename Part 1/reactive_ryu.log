@@ -1,0 +1,58 @@
+loading app p1_reactive.py
+loading app ryu.controller.ofp_handler
+instantiating app p1_reactive.py of ReactiveSwitch
+instantiating app ryu.controller.ofp_handler of OFPHandler
+s1 connected: table-miss rule installed
+s2 connected: table-miss rule installed
+PacketIn #1  s1 in=1  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #2  s2 in=3  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #3  s2 in=2  00:00:00:00:00:05 -> 00:00:00:00:00:01  out=3
+PacketIn #4  s1 in=4  00:00:00:00:00:05 -> 00:00:00:00:00:01  out=1
+PacketIn #5  s1 in=1  00:00:00:00:00:01 -> 00:00:00:00:00:05  out=4
+PacketIn #6  s2 in=3  00:00:00:00:00:01 -> 00:00:00:00:00:05  out=2
+PacketIn #7  s1 in=1  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #8  s1 in=2  00:00:00:00:00:02 -> 00:00:00:00:00:01  out=1
+PacketIn #9  s1 in=1  00:00:00:00:00:01 -> 00:00:00:00:00:02  out=2
+PacketIn #10  s2 in=3  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #11  s1 in=1  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #12  s1 in=3  00:00:00:00:00:03 -> 00:00:00:00:00:01  out=1
+PacketIn #13  s1 in=1  00:00:00:00:00:01 -> 00:00:00:00:00:03  out=3
+PacketIn #14  s2 in=3  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #15  s1 in=1  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #16  s2 in=3  00:00:00:00:00:01 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #17  s2 in=1  00:00:00:00:00:04 -> 00:00:00:00:00:01  out=3
+PacketIn #18  s1 in=4  00:00:00:00:00:04 -> 00:00:00:00:00:01  out=1
+PacketIn #19  s1 in=1  00:00:00:00:00:01 -> 00:00:00:00:00:04  out=4
+PacketIn #20  s2 in=3  00:00:00:00:00:01 -> 00:00:00:00:00:04  out=1
+PacketIn #21  s1 in=2  00:00:00:00:00:02 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #22  s1 in=3  00:00:00:00:00:03 -> 00:00:00:00:00:02  out=2
+PacketIn #23  s1 in=2  00:00:00:00:00:02 -> 00:00:00:00:00:03  out=3
+PacketIn #24  s2 in=3  00:00:00:00:00:02 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #25  s1 in=2  00:00:00:00:00:02 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #26  s2 in=3  00:00:00:00:00:02 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #27  s2 in=1  00:00:00:00:00:04 -> 00:00:00:00:00:02  out=3
+PacketIn #28  s1 in=4  00:00:00:00:00:04 -> 00:00:00:00:00:02  out=2
+PacketIn #29  s1 in=2  00:00:00:00:00:02 -> 00:00:00:00:00:04  out=4
+PacketIn #30  s2 in=3  00:00:00:00:00:02 -> 00:00:00:00:00:04  out=1
+PacketIn #31  s1 in=2  00:00:00:00:00:02 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #32  s2 in=3  00:00:00:00:00:02 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #33  s2 in=2  00:00:00:00:00:05 -> 00:00:00:00:00:02  out=3
+PacketIn #34  s1 in=4  00:00:00:00:00:05 -> 00:00:00:00:00:02  out=2
+PacketIn #35  s1 in=2  00:00:00:00:00:02 -> 00:00:00:00:00:05  out=4
+PacketIn #36  s2 in=3  00:00:00:00:00:02 -> 00:00:00:00:00:05  out=2
+PacketIn #37  s1 in=3  00:00:00:00:00:03 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #38  s2 in=3  00:00:00:00:00:03 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #39  s2 in=1  00:00:00:00:00:04 -> 00:00:00:00:00:03  out=3
+PacketIn #40  s1 in=4  00:00:00:00:00:04 -> 00:00:00:00:00:03  out=3
+PacketIn #41  s1 in=3  00:00:00:00:00:03 -> 00:00:00:00:00:04  out=4
+PacketIn #42  s2 in=3  00:00:00:00:00:03 -> 00:00:00:00:00:04  out=1
+PacketIn #43  s1 in=3  00:00:00:00:00:03 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #44  s2 in=3  00:00:00:00:00:03 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #45  s2 in=2  00:00:00:00:00:05 -> 00:00:00:00:00:03  out=3
+PacketIn #46  s1 in=4  00:00:00:00:00:05 -> 00:00:00:00:00:03  out=3
+PacketIn #47  s1 in=3  00:00:00:00:00:03 -> 00:00:00:00:00:05  out=4
+PacketIn #48  s2 in=3  00:00:00:00:00:03 -> 00:00:00:00:00:05  out=2
+PacketIn #49  s2 in=1  00:00:00:00:00:04 -> ff:ff:ff:ff:ff:ff  out=FLOOD
+PacketIn #50  s2 in=2  00:00:00:00:00:05 -> 00:00:00:00:00:04  out=1
+PacketIn #51  s2 in=1  00:00:00:00:00:04 -> 00:00:00:00:00:05  out=2
+PacketIn #52  s1 in=4  00:00:00:00:00:04 -> ff:ff:ff:ff:ff:ff  out=FLOOD

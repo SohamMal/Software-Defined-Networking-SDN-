@@ -1,0 +1,6 @@
+loading app p1_proactive.py
+loading app ryu.controller.ofp_handler
+instantiating app p1_proactive.py of ProactiveSwitch
+instantiating app ryu.controller.ofp_handler of OFPHandler
+s1 connected: 5 host rules + broadcast rule pre-installed
+s2 connected: 5 host rules + broadcast rule pre-installed

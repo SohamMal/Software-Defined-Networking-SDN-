@@ -1,0 +1,489 @@
+Script started on 2026-11-07 17:22:18+00:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="102" LINES="51"]
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exitsudo python3 p1_topo.py[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pmn -c
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Pexitsudo apt install minimet[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pmn --version
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpython3 --version[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[7msudo mn -c[27msudo mn -c
+[?2004l[sudo] password for soham: 
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+killall -9 controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+pkill -9 -f "sudo mnexec"
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old X11 tunnels
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+***  Removing OVS datapaths
+ovs-vsctl --timeout=1 list-br
+ovs-vsctl --timeout=1 list-br
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '([-_.[:alnum:]]+-eth[[:digit:]]+)'
+ip link show
+*** Killing stale mininet node processes
+pkill -9 -f mininet:
+*** Shutting down stale tunnels
+pkill -9 -f Tunnel=Ethernet
+pkill -9 -f .ssh/mn
+rm -f ~/.ssh/mn/*
+*** Cleanup complete.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7msudo python3 p[27m[7m1[27m[7m_topo.py[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo python3 p1_topo.py
+[?2004lmininet> sh ovs-ofctl -O OpenFlow13 show s1
+OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS
+OFPST_PORT_DESC reply (OF1.3) (xid=0x3):
+ 1(s1-eth1): addr:5a:ea:96:f1:a4:b9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(s1-eth2): addr:e6:81:c4:3e:54:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(s1-eth3): addr:a6:f5:64:9b:dd:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(s1-eth4): addr:72:f9:31:af:01:ca
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(s1): addr:12:2d:09:bf:49:48
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0
+mininet> sh ovs-ofctl -O OpenFlow13 show s1
+OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS
+OFPST_PORT_DESC reply (OF1.3) (xid=0x3):
+ 1(s1-eth1): addr:5a:ea:96:f1:a4:b9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(s1-eth2): addr:e6:81:c4:3e:54:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(s1-eth3): addr:a6:f5:64:9b:dd:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(s1-eth4): addr:72:f9:31:af:01:ca
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(s1): addr:12:2d:09:bf:49:48
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=41.567s, table=0, n_packets=26, n_bytes=2016, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=41.567s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> h1 ping -c 5 h5
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=46.8 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=11.3 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=10.4 ms
+
+--- 10.0.0.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4132ms
+rtt min/avg/max/mdev = 10.300/17.833/46.776/14.476 ms
+mininet> pingall
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 
+h2 -> h1 h3 h4 h5 
+h3 -> h1 h2 h4 h5 
+h4 -> h1 h2 h3 h5 
+h5 -> h1 h2 h3 h4 
+*** Results: 0% dropped (20/20 received)
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=76.958s, table=0, n_packets=30, n_bytes=2296, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=20.714s, table=0, n_packets=8, n_bytes=728, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=20.708s, table=0, n_packets=7, n_bytes=630, idle_timeout=60, priority=1,in_port="s1-eth1",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.884s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth2",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.881s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth1",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.867s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.863s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth1",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.831s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.828s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth1",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.763s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.759s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth2",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.726s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.721s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth2",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.677s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.674s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth2",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.620s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.617s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.574s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.570s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=76.958s, table=0, n_packets=28, n_bytes=1680, priority=0 actions=CONTROLLER:65535
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s2
+ cookie=0x0, duration=84.200s, table=0, n_packets=22, n_bytes=1700, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=27.964s, table=0, n_packets=8, n_bytes=728, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=output:"s2-eth3"
+ cookie=0x0, duration=27.942s, table=0, n_packets=7, n_bytes=630, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=15.083s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:01 actions=output:"s2-eth3"
+ cookie=0x0, duration=15.063s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.977s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.955s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.929s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:02 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.910s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=14.871s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.852s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.825s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:03 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.806s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=14.740s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.738s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=84.201s, table=0, n_packets=24, n_bytes=1400, priority=0 actions=CONTROLLER:65535
+mininet> exii[Kt
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+
+Script done on 2026-11-07 17:24:43+00:00 [COMMAND_EXIT_CODE="0"]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .5: icmp_seq=1 ttl=64 time=11.7 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=10.4 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=10.5 ms
+64 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=10.4 ms
+
+--- 10.0.0.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4092ms
+rtt min/avg/max/mdev = 10.327/10.672/11.676/0.506 ms
+mininet> exit
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+Script done.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ script reactive_mininet.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cudo python3 p1[C[4Ptopo.py[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pmn -c
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Pexitsudo apt install minimet[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo mn -cpython3 p1_topo.py[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccript reactive[Cmininet.txt
+[?2004lScript started, output log file is 'reactive_mininet.txt'.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exitsudo python3 p1_topo.py[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pmn -c
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Pexitsudo apt install minimet[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pmn --version
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpython3 --version[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[7msudo mn -c[27msudo mn -c
+[?2004l[sudo] password for soham: 
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+killall -9 controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+pkill -9 -f "sudo mnexec"
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old X11 tunnels
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+***  Removing OVS datapaths
+ovs-vsctl --timeout=1 list-br
+ovs-vsctl --timeout=1 list-br
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '([-_.[:alnum:]]+-eth[[:digit:]]+)'
+ip link show
+*** Killing stale mininet node processes
+pkill -9 -f mininet:
+*** Shutting down stale tunnels
+pkill -9 -f Tunnel=Ethernet
+pkill -9 -f .ssh/mn
+rm -f ~/.ssh/mn/*
+*** Cleanup complete.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7msudo python3 p[27m[7m1[27m[7m_topo.py[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo python3 p1_topo.py
+[?2004lmininet> sh ovs-ofctl -O OpenFlow13 show s1
+OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS
+OFPST_PORT_DESC reply (OF1.3) (xid=0x3):
+ 1(s1-eth1): addr:5a:ea:96:f1:a4:b9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(s1-eth2): addr:e6:81:c4:3e:54:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(s1-eth3): addr:a6:f5:64:9b:dd:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(s1-eth4): addr:72:f9:31:af:01:ca
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(s1): addr:12:2d:09:bf:49:48
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0
+mininet> sh ovs-ofctl -O OpenFlow13 show s1
+OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS
+OFPST_PORT_DESC reply (OF1.3) (xid=0x3):
+ 1(s1-eth1): addr:5a:ea:96:f1:a4:b9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(s1-eth2): addr:e6:81:c4:3e:54:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(s1-eth3): addr:a6:f5:64:9b:dd:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(s1-eth4): addr:72:f9:31:af:01:ca
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(s1): addr:12:2d:09:bf:49:48
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ csh ovs-ofctl -O OpenFlow13 show s1
+OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS
+OFPST_PORT_DESC reply (OF1.3) (xid=0x3):
+ 1(s1-eth1): addr:5a:ea:96:f1:a4:b9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(s1-eth2): addr:e6:81:c4:3e:54:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(s1-eth3): addr:a6:f5:64:9b:dd:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(s1-eth4): addr:72:f9:31:af:01:ca
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(s1): addr:12:2d:09:bf:49:48
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0
+mininet> sh ovs-ofctl -O OpenFlow13 show s1
+OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001
+n_tables:254, n_buffers:0
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS
+OFPST_PORT_DESC reply (OF1.3) (xid=0x3):
+ 1(s1-eth1): addr:5a:ea:96:f1:a4:b9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 2(s1-eth2): addr:e6:81:c4:3e:54:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 3(s1-eth3): addr:a6:f5:64:9b:dd:e9
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ 4(s1-eth4): addr:72:f9:31:af:01:ca
+     config:     0
+     state:      LIVE
+     current:    10GB-FD COPPER
+     speed: 10000 Mbps now, 0 Mbps max
+ LOCAL(s1): addr:12:2d:09:bf:49:48
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=41.567s, table=0, n_packets=26, n_bytes=2016, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=41.567s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> h1 ping -c 5 h5
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=46.8 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=11.3 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=10.4 ms
+
+--- 10.0.0.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4132ms
+rtt min/avg/max/mdev = 10.300/17.833/46.776/14.476 ms
+mininet> pingall
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 
+h2 -> h1 h3 h4 h5 
+h3 -> h1 h2 h4 h5 
+h4 -> h1 h2 h3 h5 
+h5 -> h1 h2 h3 h4 
+*** Results: 0% dropped (20/20 received)
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=76.958s, table=0, n_packets=30, n_bytes=2296, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=20.714s, table=0, n_packets=8, n_bytes=728, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=20.708s, table=0, n_packets=7, n_bytes=630, idle_timeout=60, priority=1,in_port="s1-eth1",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.884s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth2",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.881s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth1",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.867s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth3",dl_sr0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s1-eth4",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.570s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s1-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=76.958s, table=0, n_packets=28, n_bytes=1680, priority=0 actions=CONTROLLER:65535
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s2
+ cookie=0x0, duration=84.200s, table=0, n_packets=22, n_bytes=1700, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=27.964s, table=0, n_packets=8, n_bytes=728, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:01 actions=output:"s2-eth3"
+ cookie=0x0, duration=27.942s, table=0, n_packets=7, n_bytes=630, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=15.083s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:01 actions=output:"s2-eth3"
+ cookie=0x0, duration=15.063s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.977s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.955s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.929s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:02 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.910s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=14.871s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:03 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.852s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.825s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:03 actions=output:"s2-eth3"
+ cookie=0x0, duration=14.806s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth3",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=14.740s, table=0, n_packets=3, n_bytes=238, idle_timeout=60, priority=1,in_port="s2-eth2",dl_src=00:00:00:00:00:05,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=14.738s, table=0, n_packets=2, n_bytes=140, idle_timeout=60, priority=1,in_port="s2-eth1",dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=84.201s, table=0, n_packets=24, n_bytes=1400, priority=0 actions=CONTROLLER:65535
+mininet> exii[Kt
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+Script done.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7mrm -f proactiv[27m[7me[27m[7m_mininet.txt[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crm -f proactive_mininet.txt
+[?2004l[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7mscript proacti[27m[7mv[27m[7me_mininet.txt[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscript proactive_mininet.txt
+[?2004lScript started, output log file is 'proactive_mininet.txt'.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7msudo mn -c[27msudo mn -c
+[?2004l[sudo] password for soham: 
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+killall -9 controller ofprotocol ofdatapath ping nox_corelt-nox_core ovs-openflowd ovs-controllerovs-testcontroller udpbwtest mnexec ivs ryu-manager 2> /dev/null
+pkill -9 -f "sudo mnexec"
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old X11 tunnels
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+***  Removing OVS datapaths
+ovs-vsctl --timeout=1 list-br
+ovs-vsctl --timeout=1 list-br
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '([-_.[:alnum:]]+-eth[[:digit:]]+)'
+ip link show
+*** Killing stale mininet node processes
+pkill -9 -f mininet:
+*** Shutting down stale tunnels
+pkill -9 -f Tunnel=Ethernet
+pkill -9 -f .ssh/mn
+rm -f ~/.ssh/mn/*
+*** Cleanup complete.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ [7msudo python3 p[27m[7m1[27m[7m_topo.py[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo python3 p1_topo.py
+[?2004lmininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=7.109s, table=0, n_packets=21, n_bytes=1762, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> h1 ping -c 5 h5
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=23.7 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=10.5 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=10.2 ms
+64 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=10.3 ms
+
+--- 10.0.0.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4217ms
+rtt min/avg/max/mdev = 10.163/12.980/23.674/5.347 ms
+mininet> pingall
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 
+h2 -> h1 h3 h4 h5 
+h3 -> h1 h2 h4 h5 
+h4 -> h1 h2 h3 h5 
+h5 -> h1 h2 h3 h4 
+*** Results: 0% dropped (20/20 received)
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=35.003s, table=0, n_packets=29, n_bytes=2322, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=35.003s, table=0, n_packets=10, n_bytes=420, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=35.003s, table=0, n_packets=21, n_bytes=1610, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=35.003s, table=0, n_packets=15, n_bytes=1078, priority=10,dl_dst=00:00:-flows s1
+ cookie=0x0, duration=7.109s, table=0, n_packets=21, n_bytes=1762, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=7.109s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> h1 ping -c 5 h5
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=23.7 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=10.3 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=10.5 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=10.2 ms
+64 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=10.3 ms
+
+--- 10.0.0.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4217ms
+rtt min/avg/max/mdev = 10.163/12.980/23.674/5.347 ms
+mininet> pingall
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 h5 
+h2 -> h1 h3 h4 h5 
+h3 -> h1 h2 h4 h5 
+h4 -> h1 h2 h3 h5 
+h5 -> h1 h2 h3 h4 
+*** Results: 0% dropped (20/20 received)
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s1
+ cookie=0x0, duration=35.003s, table=0, n_packets=29, n_bytes=2322, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=35.003s, table=0, n_packets=10, n_bytes=420, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=35.003s, table=0, n_packets=21, n_bytes=1610, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s1-eth1"
+ cookie=0x0, duration=35.003s, table=0, n_packets=15, n_bytes=1078, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s1-eth2"
+ cookie=0x0, duration=35.003s, table=0, n_packets=14, n_bytes=1036, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s1-eth3"
+ cookie=0x0, duration=35.003s, table=0, n_packets=9, n_bytes=714, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s1-eth4"
+ cookie=0x0, duration=35.003s, table=0, n_packets=14, n_bytes=1204, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s1-eth4"
+ cookie=0x0, duration=35.003s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> sh ovs-ofctl -O OpenFlow13 dump-flows s2
+ cookie=0x0, duration=42.964s, table=0, n_packets=23, n_bytes=1862, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=42.964s, table=0, n_packets=10, n_bytes=420, priority=10,dl_dst=ff:ff:ff:ff:ff:ff actions=FLOOD
+ cookie=0x0, duration=42.964s, table=0, n_packets=13, n_bytes=1050, priority=10,dl_dst=00:00:00:00:00:01 actions=output:"s2-eth3"
+ cookie=0x0, duration=42.964s, table=0, n_packets=8, n_bytes=560, priority=10,dl_dst=00:00:00:00:00:02 actions=output:"s2-eth3"
+ cookie=0x0, duration=42.964s, table=0, n_packets=8, n_bytes=560, priority=10,dl_dst=00:00:00:00:00:03 actions=output:"s2-eth3"
+ cookie=0x0, duration=42.964s, table=0, n_packets=13, n_bytes=994, priority=10,dl_dst=00:00:00:00:00:04 actions=output:"s2-eth1"
+ cookie=0x0, duration=42.964s, table=0, n_packets=17, n_bytes=1442, priority=10,dl_dst=00:00:00:00:00:05 actions=output:"s2-eth2"
+ cookie=0x0, duration=42.964s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+mininet> exit [K
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+Script done.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+Script done.
+[?2004hsoham@LAPTOP-4P9RC570:/mnt/d/IIT/Sem 1/ACN_COL7254/Assignments/ACN_assignment_3/Part 1$ exit
+[?2004lexit
+
+Script done on 2026-11-07 17:58:21+00:00 [COMMAND_EXIT_CODE="0"]
