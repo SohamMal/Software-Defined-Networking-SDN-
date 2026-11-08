@@ -1,0 +1,108 @@
+*** Creating network
+*** Adding hosts:
+h1 h2 h3 h4 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(h1, s1) (h2, s2) (h3, s3) (h4, s4) (2.00Mbit 20ms delay) (2.00Mbit 20ms delay) (s1, s2) (2.00Mbit 10ms delay) (2.00Mbit 10ms delay) (s2, s3) (1.00Mbit 20ms delay) (1.00Mbit 20ms delay) (s3, s4) (1.00Mbit 15ms delay) (1.00Mbit 15ms delay) (s4, s1) 
+*** Configuring hosts
+h1 h2 h3 h4 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(2.00Mbit 20ms delay) (1.00Mbit 15ms delay) (2.00Mbit 20ms delay) (2.00Mbit 10ms delay) (2.00Mbit 10ms delay) (1.00Mbit 20ms delay) (1.00Mbit 20ms delay) (1.00Mbit 15ms delay) 
+*** Part 3 scenario, controller mode: aware, ring-link queue 100 packets
+*** controller reports topology complete after 0.0 s
+
+======================================================================
+### pingall (connectivity check, also resolves ARP)
+======================================================================
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 
+h2 -> h1 h3 h4 
+h3 -> h1 h2 h4 
+h4 -> h1 h2 h3 
+*** Results: 0% dropped (12/12 received)
+
+======================================================================
+### t=0  flow A: h1 -> h3  UDP 1.5 Mbit/s, 30 s   (iperf -c 10.0.0.3 -u -p 5001 -b 1.5M -t 30 -f m)
+======================================================================
+
+======================================================================
+### t=6  flow B: h1 -> h3  TCP, 15 s   (iperf -c 10.0.0.3 -p 5002 -t 15 -f m)
+======================================================================
+
+======================================================================
+### t=11  TCP/UDP rules on s1
+======================================================================
+ cookie=0x0, duration=11.007s, table=0, n_packets=1408, n_bytes=2128896, idle_timeout=30, priority=20,udp,nw_src=10.0.0.1,nw_dst=10.0.0.3,tp_src=39853,tp_dst=5001 actions=output:2
+ cookie=0x0, duration=11.006s, table=0, n_packets=0, n_bytes=0, idle_timeout=30, priority=20,udp,nw_src=10.0.0.3,nw_dst=10.0.0.1,tp_src=5001,tp_dst=39853 actions=output:1
+ cookie=0x0, duration=5s, table=0, n_packets=226, n_bytes=620240, idle_timeout=30, priority=20,tcp,nw_src=10.0.0.1,nw_dst=10.0.0.3,tp_src=51426,tp_dst=5002 actions=output:3
+ cookie=0x0, duration=5s, table=0, n_packets=172, n_bytes=11388, idle_timeout=30, priority=20,tcp,nw_src=10.0.0.3,nw_dst=10.0.0.1,tp_src=5002,tp_dst=51426 actions=output:1
+
+======================================================================
+### t=11  TCP/UDP rules on s2
+======================================================================
+ cookie=0x0, duration=11.014s, table=0, n_packets=1474, n_bytes=2228688, idle_timeout=30, priority=20,udp,nw_src=10.0.0.1,nw_dst=10.0.0.3,tp_src=39853,tp_dst=5001 actions=output:3
+ cookie=0x0, duration=11.014s, table=0, n_packets=0, n_bytes=0, idle_timeout=30, priority=20,udp,nw_src=10.0.0.3,nw_dst=10.0.0.1,tp_src=5001,tp_dst=39853 actions=output:2
+
+======================================================================
+### t=11  TCP/UDP rules on s3
+======================================================================
+ cookie=0x0, duration=11.018s, table=0, n_packets=1472, n_bytes=2225664, idle_timeout=30, priority=20,udp,nw_src=10.0.0.1,nw_dst=10.0.0.3,tp_src=39853,tp_dst=5001 actions=output:1
+ cookie=0x0, duration=11.018s, table=0, n_packets=0, n_bytes=0, idle_timeout=30, priority=20,udp,nw_src=10.0.0.3,nw_dst=10.0.0.1,tp_src=5001,tp_dst=39853 actions=output:2
+ cookie=0x0, duration=5.011s, table=0, n_packets=221, n_bytes=603990, idle_timeout=30, priority=20,tcp,nw_src=10.0.0.1,nw_dst=10.0.0.3,tp_src=51426,tp_dst=5002 actions=output:1
+ cookie=0x0, duration=5.011s, table=0, n_packets=193, n_bytes=12774, idle_timeout=30, priority=20,tcp,nw_src=10.0.0.3,nw_dst=10.0.0.1,tp_src=5002,tp_dst=51426 actions=output:3
+
+======================================================================
+### t=11  TCP/UDP rules on s4
+======================================================================
+ cookie=0x0, duration=5.016s, table=0, n_packets=221, n_bytes=603990, idle_timeout=30, priority=20,tcp,nw_src=10.0.0.1,nw_dst=10.0.0.3,tp_src=51426,tp_dst=5002 actions=output:2
+ cookie=0x0, duration=5.016s, table=0, n_packets=192, n_bytes=12708, idle_timeout=30, priority=20,tcp,nw_src=10.0.0.3,nw_dst=10.0.0.1,tp_src=5002,tp_dst=51426 actions=output:3
+
+======================================================================
+### flow B measured at the receiver h3 (iperf server)
+======================================================================
+------------------------------------------------------------
+Server listening on TCP port 5002
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.3 port 5002 connected with 10.0.0.1 port 51426 (icwnd/mss/irtt=14/1448/71309)
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-5.0000 sec  0.572 MBytes  0.959 Mbits/sec
+[  1] 5.0000-10.0000 sec  0.570 MBytes  0.957 Mbits/sec
+[  1] 10.0000-15.0000 sec  0.247 MBytes  0.415 Mbits/sec
+[  1] 15.0000-20.0000 sec  0.708 MBytes  1.19 Mbits/sec
+[  1] 20.0000-25.0000 sec  0.153 MBytes  0.257 Mbits/sec
+[  1] 25.0000-30.0000 sec  0.837 MBytes  1.40 Mbits/sec
+[  1] 30.0000-32.5412 sec  0.287 MBytes  0.948 Mbits/sec
+[  1] 0.0000-32.5412 sec  3.38 MBytes  0.870 Mbits/sec
+
+
+======================================================================
+### flow A measured at the receiver h3 (iperf server)
+======================================================================
+------------------------------------------------------------
+Server listening on UDP port 5001
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.3 port 5001 connected with 10.0.0.1 port 39853
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-5.0000 sec  0.942 MBytes  1.58 Mbits/sec   0.072 ms 0/672 (0%)
+[  1] 5.0000-10.0000 sec  0.938 MBytes  1.57 Mbits/sec   0.058 ms 0/669 (0%)
+[  1] 10.0000-15.0000 sec  0.938 MBytes  1.57 Mbits/sec   0.042 ms 0/669 (0%)
+[  1] 15.0000-20.0000 sec  0.936 MBytes  1.57 Mbits/sec   0.040 ms 0/668 (0%)
+[  1] 20.0000-25.0000 sec  0.938 MBytes  1.57 Mbits/sec   0.043 ms 0/669 (0%)
+[  1] 25.0000-30.0000 sec  0.449 MBytes  0.753 Mbits/sec   0.045 ms 0/320 (0%)
+[  1] 0.0000-30.3632 sec  5.15 MBytes  1.42 Mbits/sec   0.411 ms 0/3673 (0%)
+[  5] WARNING: ack of last datagram failed.
+
+*** Stopping 1 controllers
+c0 
+*** Stopping 8 links
+........
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 4 hosts
+h1 h2 h3 h4 
+*** Done

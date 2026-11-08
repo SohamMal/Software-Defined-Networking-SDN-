@@ -1,0 +1,166 @@
+loading app p3_controller.py
+loading app ryu.controller.ofp_handler
+loading app ryu.topology.switches
+loading app ryu.controller.ofp_handler
+instantiating app p3_controller.py of CongestionAwareRouting
+link delays from /mnt/e/iitd/sem1/acn/assignment3/Part 2/links_default.json:
+    s1-s2  20 ms
+    s1-s4  15 ms
+    s2-s3  10 ms
+    s3-s4  20 ms
+mode: CONGESTION-AWARE (threshold 70%, penalty 100 ms, poll every 1 s)
+instantiating app ryu.controller.ofp_handler of OFPHandler
+instantiating app ryu.topology.switches of Switches
+s4 connected: table-miss and IPv6-drop rules installed
+s1 connected: table-miss and IPv6-drop rules installed
+s2 connected: table-miss and IPv6-drop rules installed
+s3 connected: table-miss and IPv6-drop rules installed
+topology: 1 switches, 0 directed links
+topology: 2 switches, 0 directed links
+topology: 3 switches, 0 directed links
+topology: 4 switches, 0 directed links
+topology: 4 switches, 1 directed links
+topology: 4 switches, 2 directed links
+topology: 4 switches, 3 directed links
+topology: 4 switches, 4 directed links
+topology: 4 switches, 5 directed links
+topology: 4 switches, 6 directed links
+topology: 4 switches, 7 directed links
+topology: 4 switches, 8 directed links
+topology complete: 4 switches, 8 directed links
+    s1 port 2 -> s2 port 2
+    s1 port 3 -> s4 port 3
+    s2 port 2 -> s1 port 2
+    s2 port 3 -> s3 port 2
+    s3 port 2 -> s2 port 3
+    s3 port 3 -> s4 port 2
+    s4 port 3 -> s1 port 3
+    s4 port 2 -> s3 port 3
+host 10.0.0.1 (00:00:00:00:00:01) is attached to s1 port 1
+arp: request 10.0.0.1 -> who-has 10.0.0.2 at s1, sent to edge ports
+host 10.0.0.2 (00:00:00:00:00:02) is attached to s2 port 1
+NEW FLOW ICMP 10.0.0.1 -> 10.0.0.2
+    no congested links
+route 10.0.0.1 -> 10.0.0.2 (s1 -> s2), metric = delay
+    candidate s1-s2       : 20 = 20 ms   <- chosen
+    candidate s1-s4-s3-s2 : 15 + 20 + 10 = 45 ms
+    installed ICMP 10.0.0.1 -> 10.0.0.2 on s1(out 2), s2(out 1)
+    installed ICMP 10.0.0.2 -> 10.0.0.1 on s2(out 2), s1(out 1)
+arp: request 10.0.0.1 -> who-has 10.0.0.3 at s1, sent to edge ports
+host 10.0.0.3 (00:00:00:00:00:03) is attached to s3 port 1
+NEW FLOW ICMP 10.0.0.1 -> 10.0.0.3
+    no congested links
+route 10.0.0.1 -> 10.0.0.3 (s1 -> s3), metric = delay
+    candidate s1-s2-s3    : 20 + 10 = 30 ms   <- chosen
+    candidate s1-s4-s3    : 15 + 20 = 35 ms
+    installed ICMP 10.0.0.1 -> 10.0.0.3 on s1(out 2), s2(out 3), s3(out 1)
+    installed ICMP 10.0.0.3 -> 10.0.0.1 on s3(out 2), s2(out 2), s1(out 1)
+arp: request 10.0.0.1 -> who-has 10.0.0.4 at s1, sent to edge ports
+host 10.0.0.4 (00:00:00:00:00:04) is attached to s4 port 1
+NEW FLOW ICMP 10.0.0.1 -> 10.0.0.4
+    no congested links
+route 10.0.0.1 -> 10.0.0.4 (s1 -> s4), metric = delay
+    candidate s1-s4       : 15 = 15 ms   <- chosen
+    candidate s1-s2-s3-s4 : 20 + 10 + 20 = 50 ms
+    installed ICMP 10.0.0.1 -> 10.0.0.4 on s1(out 3), s4(out 1)
+    installed ICMP 10.0.0.4 -> 10.0.0.1 on s4(out 3), s1(out 1)
+arp: request 10.0.0.2 -> who-has 10.0.0.3 at s2, proxy reply
+NEW FLOW ICMP 10.0.0.2 -> 10.0.0.3
+    no congested links
+route 10.0.0.2 -> 10.0.0.3 (s2 -> s3), metric = delay
+    candidate s2-s3       : 10 = 10 ms   <- chosen
+    candidate s2-s1-s4-s3 : 20 + 15 + 20 = 55 ms
+    installed ICMP 10.0.0.2 -> 10.0.0.3 on s2(out 3), s3(out 1)
+    installed ICMP 10.0.0.3 -> 10.0.0.2 on s3(out 2), s2(out 1)
+arp: request 10.0.0.3 -> who-has 10.0.0.2 at s3, proxy reply
+arp: request 10.0.0.2 -> who-has 10.0.0.4 at s2, proxy reply
+NEW FLOW ICMP 10.0.0.2 -> 10.0.0.4
+    no congested links
+route 10.0.0.2 -> 10.0.0.4 (s2 -> s4), metric = delay
+    candidate s2-s3-s4    : 10 + 20 = 30 ms   <- chosen
+    candidate s2-s1-s4    : 20 + 15 = 35 ms
+    installed ICMP 10.0.0.2 -> 10.0.0.4 on s2(out 3), s3(out 3), s4(out 1)
+    installed ICMP 10.0.0.4 -> 10.0.0.2 on s4(out 2), s3(out 2), s2(out 1)
+arp: request 10.0.0.4 -> who-has 10.0.0.2 at s4, proxy reply
+arp: request 10.0.0.3 -> who-has 10.0.0.4 at s3, proxy reply
+NEW FLOW ICMP 10.0.0.3 -> 10.0.0.4
+    no congested links
+route 10.0.0.3 -> 10.0.0.4 (s3 -> s4), metric = delay
+    candidate s3-s4       : 20 = 20 ms   <- chosen
+    candidate s3-s2-s1-s4 : 10 + 20 + 15 = 45 ms
+    installed ICMP 10.0.0.3 -> 10.0.0.4 on s3(out 3), s4(out 1)
+    installed ICMP 10.0.0.4 -> 10.0.0.3 on s4(out 2), s3(out 1)
+arp: request 10.0.0.4 -> who-has 10.0.0.3 at s4, proxy reply
+NEW FLOW UDP 10.0.0.1:39853 -> 10.0.0.3:5001
+    no congested links
+route 10.0.0.1 -> 10.0.0.3 (s1 -> s3), metric = delay
+    candidate s1-s2-s3    : 20 + 10 = 30 ms   <- chosen
+    candidate s1-s4-s3    : 15 + 20 = 35 ms
+    installed UDP 10.0.0.1:39853 -> 10.0.0.3:5001 on s1(out 2), s2(out 3), s3(out 1)
+    installed UDP 10.0.0.3:5001 -> 10.0.0.1:39853 on s3(out 2), s2(out 2), s1(out 1)
+util: s1->s2 1.66Mb/s  83%  s2->s3 1.64Mb/s  82%
+CONGESTED: s1->s2 at 83% (> 70%)
+CONGESTED: s2->s3 at 82% (> 70%)
+util: s1->s2 1.61Mb/s  81%  s2->s3 1.61Mb/s  81%
+arp: request 10.0.0.4 -> who-has 10.0.0.1 at s4, proxy reply
+arp: request 10.0.0.3 -> who-has 10.0.0.1 at s3, proxy reply
+arp: request 10.0.0.2 -> who-has 10.0.0.1 at s2, proxy reply
+util: s1->s2 1.62Mb/s  81%  s2->s3 1.62Mb/s  81%
+util: s1->s2 1.63Mb/s  82%  s2->s3 1.62Mb/s  81%
+NEW FLOW TCP 10.0.0.1:51426 -> 10.0.0.3:5002
+    congested links: s1->s2 82%, s2->s3 81%  (+100 ms each)
+route 10.0.0.1 -> 10.0.0.3 (s1 -> s3), metric = delay
+    candidate s1-s4-s3    : 15 + 20 = 35 ms   <- chosen
+    candidate s1-s2-s3    : 120 + 110 = 230 ms
+    installed TCP 10.0.0.1:51426 -> 10.0.0.3:5002 on s1(out 3), s4(out 2), s3(out 1)
+    installed TCP 10.0.0.3:5002 -> 10.0.0.1:51426 on s3(out 3), s4(out 3), s1(out 1)
+util: s1->s2 1.62Mb/s  81%  s2->s3 1.62Mb/s  81%
+util: s1->s2 1.62Mb/s  81%  s2->s3 1.62Mb/s  81%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.94Mb/s  94%  s2->s3 1.62Mb/s  81%  s4->s3 0.91Mb/s  91%
+CONGESTED: s1->s4 at 94% (> 70%)
+CONGESTED: s4->s3 at 91% (> 70%)
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.63Mb/s  81%  s4->s3 0.99Mb/s  99%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.62Mb/s  81%  s4->s3 0.98Mb/s  98%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.62Mb/s  81%  s4->s3 0.98Mb/s  98%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.62Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.62Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 1.00Mb/s 100%  s2->s3 1.62Mb/s  81%  s4->s3 1.00Mb/s 100%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.96Mb/s  96%  s2->s3 1.62Mb/s  81%  s4->s3 0.98Mb/s  98%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.62Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.98Mb/s  98%  s2->s3 1.62Mb/s  81%  s4->s3 0.98Mb/s  98%
+util: s1->s2 1.63Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.61Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.62Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.61Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.62Mb/s  81%  s4->s3 0.99Mb/s  99%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.98Mb/s  98%  s2->s3 1.62Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.62Mb/s  81%  s3->s4 0.05Mb/s   5%  s4->s3 1.01Mb/s 101%
+util: s1->s2 1.61Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.63Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.62Mb/s  81%  s4->s3 0.99Mb/s  99%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.97Mb/s  97%  s2->s3 1.62Mb/s  81%  s4->s3 0.98Mb/s  98%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.62Mb/s  81%  s4->s3 0.98Mb/s  98%
+util: s1->s2 1.63Mb/s  81%  s1->s4 0.98Mb/s  98%  s2->s3 1.62Mb/s  81%  s4->s3 0.97Mb/s  97%
+util: s1->s2 1.62Mb/s  81%  s1->s4 0.99Mb/s  99%  s2->s3 1.61Mb/s  81%  s4->s3 0.99Mb/s  99%
+util: s1->s2 0.69Mb/s  34%  s1->s4 0.99Mb/s  99%  s2->s3 0.71Mb/s  36%  s4->s3 0.99Mb/s  99%
+cleared:   s1->s2 back to 34%
+cleared:   s2->s3 back to 36%
+util: s1->s4 0.99Mb/s  99%  s4->s3 0.99Mb/s  99%
+util: s1->s4 1.00Mb/s 100%  s4->s3 1.00Mb/s 100%
+util: s1->s4 0.97Mb/s  97%  s4->s3 0.98Mb/s  98%
+util: s1->s4 0.99Mb/s  99%  s4->s3 0.97Mb/s  97%
+util: s1->s4 0.96Mb/s  96%  s4->s3 0.99Mb/s  99%
+util: s1->s4 0.99Mb/s  99%  s4->s3 0.98Mb/s  98%
+util: s1->s4 0.97Mb/s  97%  s4->s3 0.98Mb/s  98%
+util: s1->s4 0.55Mb/s  55%  s4->s3 0.56Mb/s  56%
+cleared:   s1->s4 back to 55%
+cleared:   s4->s3 back to 56%
+topology: 4 switches, 7 directed links
+topology: 4 switches, 6 directed links
+topology: 4 switches, 5 directed links
+topology: 4 switches, 4 directed links
+topology: 4 switches, 3 directed links
+topology: 4 switches, 2 directed links
+topology: 4 switches, 1 directed links
+topology: 4 switches, 0 directed links
+topology: 3 switches, 0 directed links
+topology: 2 switches, 0 directed links
+topology: 1 switches, 0 directed links
+topology: 0 switches, 0 directed links

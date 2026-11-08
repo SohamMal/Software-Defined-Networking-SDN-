@@ -1,0 +1,93 @@
+loading app p2_controller.py
+loading app ryu.controller.ofp_handler
+loading app ryu.topology.switches
+loading app ryu.controller.ofp_handler
+instantiating app p2_controller.py of DelayRouting
+link delays from /mnt/e/iitd/sem1/acn/assignment3/Part 2/links_changed.json:
+    s1-s2  40 ms
+    s1-s4  15 ms
+    s2-s3  10 ms
+    s3-s4  20 ms
+instantiating app ryu.controller.ofp_handler of OFPHandler
+instantiating app ryu.topology.switches of Switches
+s1 connected: table-miss and IPv6-drop rules installed
+s4 connected: table-miss and IPv6-drop rules installed
+s2 connected: table-miss and IPv6-drop rules installed
+s3 connected: table-miss and IPv6-drop rules installed
+topology: 1 switches, 0 directed links
+topology: 2 switches, 0 directed links
+topology: 3 switches, 0 directed links
+topology: 4 switches, 0 directed links
+topology: 4 switches, 1 directed links
+topology: 4 switches, 2 directed links
+topology: 4 switches, 3 directed links
+topology: 4 switches, 4 directed links
+topology: 4 switches, 5 directed links
+topology: 4 switches, 6 directed links
+topology: 4 switches, 7 directed links
+topology: 4 switches, 8 directed links
+topology complete: 4 switches, 8 directed links
+    s1 port 2 -> s2 port 2
+    s1 port 3 -> s4 port 3
+    s2 port 2 -> s1 port 2
+    s2 port 3 -> s3 port 2
+    s3 port 2 -> s2 port 3
+    s3 port 3 -> s4 port 2
+    s4 port 3 -> s1 port 3
+    s4 port 2 -> s3 port 3
+host 10.0.0.1 (00:00:00:00:00:01) is attached to s1 port 1
+arp: request 10.0.0.1 -> who-has 10.0.0.3 at s1, sent to edge ports
+host 10.0.0.3 (00:00:00:00:00:03) is attached to s3 port 1
+route 10.0.0.1 -> 10.0.0.3 (s1 -> s3), metric = delay
+    candidate s1-s4-s3    : 15 + 20 = 35 ms   <- chosen
+    candidate s1-s2-s3    : 40 + 10 = 50 ms
+    installed 10.0.0.1 -> 10.0.0.3 on s1(out 3), s4(out 2), s3(out 1)
+    installed 10.0.0.3 -> 10.0.0.1 on s3(out 3), s4(out 3), s1(out 1)
+arp: request 10.0.0.3 -> who-has 10.0.0.1 at s3, proxy reply
+arp: request 10.0.0.1 -> who-has 10.0.0.2 at s1, sent to edge ports
+host 10.0.0.2 (00:00:00:00:00:02) is attached to s2 port 1
+route 10.0.0.1 -> 10.0.0.2 (s1 -> s2), metric = delay
+    candidate s1-s2       : 40 = 40 ms   <- chosen
+    candidate s1-s4-s3-s2 : 15 + 20 + 10 = 45 ms
+    installed 10.0.0.1 -> 10.0.0.2 on s1(out 2), s2(out 1)
+    installed 10.0.0.2 -> 10.0.0.1 on s2(out 2), s1(out 1)
+arp: request 10.0.0.1 -> who-has 10.0.0.4 at s1, sent to edge ports
+host 10.0.0.4 (00:00:00:00:00:04) is attached to s4 port 1
+route 10.0.0.1 -> 10.0.0.4 (s1 -> s4), metric = delay
+    candidate s1-s4       : 15 = 15 ms   <- chosen
+    candidate s1-s2-s3-s4 : 40 + 10 + 20 = 70 ms
+    installed 10.0.0.1 -> 10.0.0.4 on s1(out 3), s4(out 1)
+    installed 10.0.0.4 -> 10.0.0.1 on s4(out 3), s1(out 1)
+arp: request 10.0.0.2 -> who-has 10.0.0.3 at s2, proxy reply
+route 10.0.0.2 -> 10.0.0.3 (s2 -> s3), metric = delay
+    candidate s2-s3       : 10 = 10 ms   <- chosen
+    candidate s2-s1-s4-s3 : 40 + 15 + 20 = 75 ms
+    installed 10.0.0.2 -> 10.0.0.3 on s2(out 3), s3(out 1)
+    installed 10.0.0.3 -> 10.0.0.2 on s3(out 2), s2(out 1)
+arp: request 10.0.0.3 -> who-has 10.0.0.2 at s3, proxy reply
+arp: request 10.0.0.2 -> who-has 10.0.0.4 at s2, proxy reply
+route 10.0.0.2 -> 10.0.0.4 (s2 -> s4), metric = delay
+    candidate s2-s3-s4    : 10 + 20 = 30 ms   <- chosen
+    candidate s2-s1-s4    : 40 + 15 = 55 ms
+    installed 10.0.0.2 -> 10.0.0.4 on s2(out 3), s3(out 3), s4(out 1)
+    installed 10.0.0.4 -> 10.0.0.2 on s4(out 2), s3(out 2), s2(out 1)
+arp: request 10.0.0.4 -> who-has 10.0.0.2 at s4, proxy reply
+arp: request 10.0.0.3 -> who-has 10.0.0.4 at s3, proxy reply
+route 10.0.0.3 -> 10.0.0.4 (s3 -> s4), metric = delay
+    candidate s3-s4       : 20 = 20 ms   <- chosen
+    candidate s3-s2-s1-s4 : 10 + 40 + 15 = 65 ms
+    installed 10.0.0.3 -> 10.0.0.4 on s3(out 3), s4(out 1)
+    installed 10.0.0.4 -> 10.0.0.3 on s4(out 2), s3(out 1)
+arp: request 10.0.0.4 -> who-has 10.0.0.3 at s4, proxy reply
+topology: 4 switches, 7 directed links
+topology: 4 switches, 6 directed links
+topology: 4 switches, 5 directed links
+topology: 4 switches, 4 directed links
+topology: 4 switches, 3 directed links
+topology: 4 switches, 2 directed links
+topology: 4 switches, 1 directed links
+topology: 4 switches, 0 directed links
+topology: 3 switches, 0 directed links
+topology: 2 switches, 0 directed links
+topology: 1 switches, 0 directed links
+topology: 0 switches, 0 directed links

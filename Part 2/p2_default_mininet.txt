@@ -1,0 +1,110 @@
+*** Creating network
+*** Adding hosts:
+h1 h2 h3 h4 
+*** Adding switches:
+s1 s2 s3 s4 
+*** Adding links:
+(h1, s1) (h2, s2) (h3, s3) (h4, s4) (2.00Mbit 20ms delay) (2.00Mbit 20ms delay) (s1, s2) (2.00Mbit 10ms delay) (2.00Mbit 10ms delay) (s2, s3) (1.00Mbit 20ms delay) (1.00Mbit 20ms delay) (s3, s4) (1.00Mbit 15ms delay) (1.00Mbit 15ms delay) (s4, s1) 
+*** Configuring hosts
+h1 h2 h3 h4 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...(2.00Mbit 20ms delay) (1.00Mbit 15ms delay) (2.00Mbit 20ms delay) (2.00Mbit 10ms delay) (2.00Mbit 10ms delay) (1.00Mbit 20ms delay) (1.00Mbit 20ms delay) (1.00Mbit 15ms delay) 
+*** Link properties from links_default.json
+    s1-s2  2 Mbps  20 ms
+    s2-s3  2 Mbps  10 ms
+    s3-s4  1 Mbps  20 ms
+    s4-s1  1 Mbps  15 ms
+*** controller reports topology complete after 0.0 s
+
+======================================================================
+### h1 ping -c 5 h3   (first traffic in the network)
+======================================================================
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=106 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=61.3 ms
+64 bytes from 10.0.0.3: icmp_seq=3 ttl=64 time=60.4 ms
+64 bytes from 10.0.0.3: icmp_seq=4 ttl=64 time=60.4 ms
+64 bytes from 10.0.0.3: icmp_seq=5 ttl=64 time=60.4 ms
+
+--- 10.0.0.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4340ms
+rtt min/avg/max/mdev = 60.374/69.625/105.637/18.009 ms
+
+
+======================================================================
+### ovs-ofctl -O OpenFlow13 dump-flows s1
+======================================================================
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=4.568s, table=0, n_packets=11, n_bytes=660, priority=65535,dl_dst=01:80:c2:00:00:0e,dl_type=0x88cc actions=CONTROLLER:65535
+ cookie=0x0, duration=4.606s, table=0, n_packets=5, n_bytes=390, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=4.029s, table=0, n_packets=4, n_bytes=392, idle_timeout=30, priority=10,ip,nw_src=10.0.0.1,nw_dst=10.0.0.3 actions=output:2
+ cookie=0x0, duration=4.029s, table=0, n_packets=5, n_bytes=490, idle_timeout=30, priority=10,ip,nw_src=10.0.0.3,nw_dst=10.0.0.1 actions=output:1
+ cookie=0x0, duration=4.606s, table=0, n_packets=3, n_bytes=200, priority=0 actions=CONTROLLER:65535
+
+
+======================================================================
+### ovs-ofctl -O OpenFlow13 dump-flows s2
+======================================================================
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=4.577s, table=0, n_packets=10, n_bytes=600, priority=65535,dl_dst=01:80:c2:00:00:0e,dl_type=0x88cc actions=CONTROLLER:65535
+ cookie=0x0, duration=4.613s, table=0, n_packets=5, n_bytes=390, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=4.036s, table=0, n_packets=5, n_bytes=490, idle_timeout=30, priority=10,ip,nw_src=10.0.0.1,nw_dst=10.0.0.3 actions=output:3
+ cookie=0x0, duration=4.036s, table=0, n_packets=5, n_bytes=490, idle_timeout=30, priority=10,ip,nw_src=10.0.0.3,nw_dst=10.0.0.1 actions=output:2
+ cookie=0x0, duration=4.613s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+======================================================================
+### ovs-ofctl -O OpenFlow13 dump-flows s3
+======================================================================
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=4.581s, table=0, n_packets=11, n_bytes=660, priority=65535,dl_dst=01:80:c2:00:00:0e,dl_type=0x88cc actions=CONTROLLER:65535
+ cookie=0x0, duration=4.619s, table=0, n_packets=6, n_bytes=460, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=4.042s, table=0, n_packets=5, n_bytes=490, idle_timeout=30, priority=10,ip,nw_src=10.0.0.1,nw_dst=10.0.0.3 actions=output:1
+ cookie=0x0, duration=4.042s, table=0, n_packets=5, n_bytes=490, idle_timeout=30, priority=10,ip,nw_src=10.0.0.3,nw_dst=10.0.0.1 actions=output:2
+ cookie=0x0, duration=4.619s, table=0, n_packets=2, n_bytes=102, priority=0 actions=CONTROLLER:65535
+
+
+======================================================================
+### ovs-ofctl -O OpenFlow13 dump-flows s4
+======================================================================
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=4.624s, table=0, n_packets=12, n_bytes=720, priority=65535,dl_dst=01:80:c2:00:00:0e,dl_type=0x88cc actions=CONTROLLER:65535
+ cookie=0x0, duration=4.656s, table=0, n_packets=5, n_bytes=390, priority=100,ipv6 actions=drop
+ cookie=0x0, duration=4.658s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+======================================================================
+### h3 ping -c 5 h1   (reverse direction)
+======================================================================
+PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=60.4 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=60.3 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=60.3 ms
+64 bytes from 10.0.0.1: icmp_seq=4 ttl=64 time=60.3 ms
+64 bytes from 10.0.0.1: icmp_seq=5 ttl=64 time=60.3 ms
+
+--- 10.0.0.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4347ms
+rtt min/avg/max/mdev = 60.286/60.316/60.369/0.029 ms
+
+
+======================================================================
+### pingall
+======================================================================
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 
+h2 -> h1 h3 h4 
+h3 -> h1 h2 h4 
+h4 -> h1 h2 h3 
+*** Results: 0% dropped (12/12 received)
+*** Stopping 1 controllers
+c0 
+*** Stopping 8 links
+........
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 4 hosts
+h1 h2 h3 h4 
+*** Done

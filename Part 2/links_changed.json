@@ -1,0 +1,9 @@
+{
+  "_comment": "Changed-property test: s1-s2 delay raised 20 ms -> 40 ms. Everything else identical to links_default.json.",
+  "links": [
+    {"a": "s1", "b": "s2", "bw_mbps": 2, "delay_ms": 40},
+    {"a": "s2", "b": "s3", "bw_mbps": 2, "delay_ms": 10},
+    {"a": "s3", "b": "s4", "bw_mbps": 1, "delay_ms": 20},
+    {"a": "s4", "b": "s1", "bw_mbps": 1, "delay_ms": 15}
+  ]
+}
